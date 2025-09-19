@@ -215,6 +215,30 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("sendRouteBtn").style.display = "inline-block";
   });
 
+  // Agregar buscador de direcciones
+  if (typeof L.Control.Geocoder !== "undefined") {
+    var geocoder = L.Control.geocoder({
+      defaultMarkGeocode: false,
+      placeholder: "Buscar dirección...",
+      errorMessage: "No se encontró la dirección",
+      geocoder: L.Control.Geocoder.nominatim(),
+    })
+      .on("markgeocode", function (e) {
+        var bbox = e.geocode.bbox;
+        var center = e.geocode.center;
+        map.fitBounds(bbox);
+        // Coloca el marcador de destino y muestra el botón de WhatsApp
+        if (destMarker) map.removeLayer(destMarker);
+        destPos = [center.lat, center.lng];
+        destMarker = L.marker(destPos, { title: "Destino" })
+          .addTo(map)
+          .bindPopup(e.geocode.name)
+          .openPopup();
+        document.getElementById("sendRouteBtn").style.display = "inline-block";
+      })
+      .addTo(map);
+  }
+
   // Botón para enviar por WhatsApp
   document.getElementById("sendRouteBtn").onclick = function () {
     if (!destPos) return;
