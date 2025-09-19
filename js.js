@@ -1,16 +1,11 @@
 const navbar = document.querySelector("header");
-let lastScrollTop = 0;
 
 window.addEventListener("scroll", function () {
-  const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-  if (scrollTop > lastScrollTop) {
-    // El usuario está desplazándose hacia abajo
+  if (window.scrollY > 10) {
     navbar.classList.add("scrolled");
   } else {
-    // El usuario está desplazándose hacia arriba
     navbar.classList.remove("scrolled");
   }
-  lastScrollTop = scrollTop;
 });
 
 document.addEventListener("DOMContentLoaded", function () {
