@@ -163,6 +163,7 @@ header.scrolled {
     overflow-x: hidden;
     /* Hide scroll when closed */
     pointer-events: none;
+    margin-top: 65px;
   }
   .nav-list.open {
     right: 0;
@@ -299,6 +300,7 @@ footer {
 
 /* HERO SECTION */
 .hero-section {
+  margin-top: 100px;
   width: 100%;
   display: flex;
   justify-content: center;
