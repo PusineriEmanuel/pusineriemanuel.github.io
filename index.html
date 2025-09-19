@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>tadeo trip page</title>
+    <link rel="stylesheet" href="css.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <div class="titleAndNavContainer">
+          <img
+            src="img/viajes-tlz-high-resolution-logo-transparent.png"
+            alt=""
+            class="logoImg"
+          />
+
+          <nav class="navbar">
+            <button class="menu-toggle" aria-label="Abrir menú">
+              <span></span>
+              <span></span>
+              <span></span>
+            </button>
+            <ul class="nav-list">
+              <li><a href="#">Inicio</a></li>
+              <li><a href="#">Trayectoria</a></li>
+              <li><a href="#">Contáctanos</a></li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+      <main>
+        <section class="hero-section">
+          <div class="hero-content">
+            <div class="hero-text">
+              <h1>Viajes a La Plata, Capital y demas</h1>
+              <p>
+                Gestionamos viajes a La Plata, Capital y demas destinos.
+                Ofrecemos servicios de transporte y Encomiendas.
+              </p>
+            </div>
+            <div class="hero-image">
+              <img src="img/auto1.jpeg" alt="Viaje" />
+            </div>
+          </div>
+        </section>
+        <!-- ...puedes agregar más secciones aquí... -->
+        <section>
+          <div class="buttonContainer">
+            <button>
+              <a
+                href="https://wa.me/5492241559511"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Reservar mi viaje</a
+              >
+            </button>
+          </div>
+        </section>
+        <section class="features-section">
+          <div class="features-grid">
+            <div class="feature-card">
+              <div class="feature-icon">
+                <span>🔒</span>
+              </div>
+              <h3>Seguridad Garantizada</h3>
+              <p>
+                Tus viajes y encomiendas están protegidos y asegurados en todo
+                momento. Confianza y tranquilidad en cada traslado.
+              </p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon">
+                <span>⏱️</span>
+              </div>
+              <h3>Puntualidad</h3>
+              <p>
+                Cumplimos horarios y rutas establecidas para que llegues a
+                destino o recibas tu encomienda siempre a tiempo.
+              </p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon">
+                <span>🤝</span>
+              </div>
+              <h3>Viajes Compartidos</h3>
+              <p>
+                Compartí tu viaje con otros pasajeros y ahorrá en costos,
+                manteniendo siempre la comodidad y el buen trato.
+              </p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon">
+                <span>⭐</span>
+              </div>
+              <h3>Experiencia y Confianza</h3>
+              <p>
+                Nuestra experiencia conectando Chascomús, La Plata y Buenos
+                Aires. Recomendados por nuestros clientes.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <div class="buttonContainer">
+            <button>
+              <a
+                href="https://wa.me/5492241559511"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Contactanos</a
+              >
+            </button>
+          </div>
+        </section>
+        <section class="testimonials-section">
+          <h2>Lo que dicen nuestros clientes</h2>
+          <div class="testimonials-grid">
+            <div class="testimonial-card">
+              <p>
+                "Excelente servicio, puntualidad y muy buena atención.
+                ¡Recomendado!"
+              </p>
+              <span>- María, Chascomús</span>
+            </div>
+            <div class="testimonial-card">
+              <p>
+                "Siempre viajo tranquilo y mis encomiendas llegan perfectas."
+              </p>
+              <span>- Juan, La Plata</span>
+            </div>
+          </div>
+        </section>
+        <section class="gallery-section">
+          <h2 class="gallery-title">Algunos de nuestros viajes y entregas</h2>
+          <div class="gallery-fan">
+            <div class="gallery-img">
+              <img src="img/auto1.jpeg" alt="Viaje 1" />
+            </div>
+            <div class="gallery-img">
+              <img src="img/auto2.jpeg" alt="Viaje 2" />
+            </div>
+            <div class="gallery-img">
+              <img src="img/auto3.jpeg" alt="Viaje 3" />
+            </div>
+            <div class="gallery-img">
+              <img src="img/auto4.jpeg" alt="Viaje 4" />
+            </div>
+            <!-- Puedes agregar más imágenes aquí -->
+          </div>
+        </section>
+        <!-- Lightbox para galería -->
+        <div class="gallery-lightbox" id="galleryLightbox">
+          <div class="gallery-lightbox-content">
+            <button
+              class="gallery-lightbox-close"
+              id="galleryLightboxClose"
+              aria-label="Cerrar"
+            >
+              &times;
+            </button>
+            <button
+              class="gallery-lightbox-arrow left"
+              id="galleryLightboxPrev"
+              aria-label="Anterior"
+            >
+              &#10094;
+            </button>
+            <img src="" alt="Imagen ampliada" id="galleryLightboxImg" />
+            <button
+              class="gallery-lightbox-arrow right"
+              id="galleryLightboxNext"
+              aria-label="Siguiente"
+            >
+              &#10095;
+            </button>
+          </div>
+        </div>
+      </main>
+      <footer>
+        <p>&copy; 2024 Tadeo's Trip Page</p>
+      </footer>
+    </div>
+    <script src="js.js"></script>
+  </body>
+</html>
