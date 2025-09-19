@@ -166,4 +166,17 @@ document.addEventListener("DOMContentLoaded", function () {
     updateGalleryFan(current);
     startGalleryFan();
   }
+
+  // Flecha "ir arriba"
+  const scrollToTopBtn = document.getElementById("scrollToTopBtn");
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 200) {
+      scrollToTopBtn.classList.add("visible");
+    } else {
+      scrollToTopBtn.classList.remove("visible");
+    }
+  });
+  scrollToTopBtn.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
 });
