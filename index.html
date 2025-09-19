@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>tadeo trip page</title>
     <link rel="stylesheet" href="css.css" />
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
   </head>
   <body>
     <div class="container">
@@ -178,6 +182,32 @@
             </button>
           </div>
         </div>
+        <section class="maps-section">
+          <h2>Reservá tu viaje fácil</h2>
+          <div
+            id="map"
+            style="
+              width: 100%;
+              height: 340px;
+              border-radius: 18px;
+              overflow: hidden;
+              margin-bottom: 18px;
+            "
+          ></div>
+          <button
+            id="sendRouteBtn"
+            class="send-route-btn"
+            style="display: none"
+          >
+            Enviar ruta por WhatsApp
+          </button>
+        </section>
+        <!-- Google Maps API -->
+        <script
+          src="https://maps.googleapis.com/maps/api/js?key=AIzaSyANFaowUFGWfWSAtHJ06CzxDV77C9dM9G4&callback=initMap"
+          async
+          defer
+        ></script>
       </main>
       <footer>
         <p>&copy; 2024 Tadeo's Trip Page</p>
@@ -189,3 +219,4 @@
     <script src="js.js"></script>
   </body>
 </html>
+```

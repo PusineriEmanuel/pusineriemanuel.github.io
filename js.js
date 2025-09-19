@@ -179,4 +179,49 @@ document.addEventListener("DOMContentLoaded", function () {
   scrollToTopBtn.addEventListener("click", () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   });
+
+  // OpenStreetMap con Leaflet
+  // Centra en Chascomús por defecto
+  var defaultCoords = [-35.5725, -58.0094];
+  var map = L.map("map").setView(defaultCoords, 12);
+
+  L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+    attribution:
+      '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+  }).addTo(map);
+
+  var userMarker, destMarker, userPos, destPos;
+
+  // Intenta obtener la ubicación del usuario
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function (position) {
+      userPos = [position.coords.latitude, position.coords.longitude];
+      map.setView(userPos, 13);
+      userMarker = L.marker(userPos, { title: "Tu ubicación" })
+        .addTo(map)
+        .bindPopup("Tu ubicación")
+        .openPopup();
+    });
+  }
+
+  // Click en el mapa para elegir destino
+  map.on("click", function (e) {
+    destPos = [e.latlng.lat, e.latlng.lng];
+    if (destMarker) map.removeLayer(destMarker);
+    destMarker = L.marker(destPos, { title: "Destino" })
+      .addTo(map)
+      .bindPopup("Destino")
+      .openPopup();
+    document.getElementById("sendRouteBtn").style.display = "inline-block";
+  });
+
+  // Botón para enviar por WhatsApp
+  document.getElementById("sendRouteBtn").onclick = function () {
+    if (!destPos) return;
+    let origin = userPos ? userPos : defaultCoords;
+    const osmUrl = `https://www.openstreetmap.org/directions?engine=fossgis_osrm_car&route=${origin[0]},${origin[1]};${destPos[0]},${destPos[1]}`;
+    const msg = `Hola, quiero reservar un viaje desde mi ubicación hasta este destino: ${osmUrl}`;
+    const waUrl = `https://wa.me/5492241559511?text=${encodeURIComponent(msg)}`;
+    window.open(waUrl, "_blank");
+  };
 });

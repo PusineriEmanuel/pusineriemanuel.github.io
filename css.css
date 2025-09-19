@@ -874,7 +874,7 @@ footer {
   width: 54px;
   height: 54px;
   border-radius: 50%;
-  background: rgba(32,32,32,0.75);
+  background: rgba(32, 32, 32, 0.75);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   color: #0c79d7;
@@ -899,12 +899,36 @@ footer {
   pointer-events: all;
 }
 
-@media (max-width: 600px) {
-  .scroll-to-top {
-    width: 40px;
-    height: 40px;
-    font-size: 1.3rem;
-    bottom: 18px;
-    right: 10px;
-  }
+.maps-section {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto 40px auto;
+  padding: 24px 0 0 0;
+  text-align: center;
+}
+.maps-section h2 {
+  color: #fff;
+  font-size: 1.4rem;
+  margin-bottom: 18px;
+  letter-spacing: 1px;
+}
+#map {
+  box-shadow: 0 4px 24px #0c79d733;
+  background: #222;
+}
+.send-route-btn {
+  margin-top: 10px;
+  padding: 14px 32px;
+  background: #111;
+  color: #fff;
+  font-weight: 600;
+  border-radius: 10px;
+  border: 2px solid #0c79d7;
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: background 0.2s, color 0.2s;
+}
+.send-route-btn:hover {
+  background: #0c79d7;
+  color: #fff;
 }
