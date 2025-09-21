@@ -170,7 +170,15 @@ document.addEventListener("DOMContentLoaded", function () {
   // Flecha "ir arriba"
   const scrollToTopBtn = document.getElementById("scrollToTopBtn");
   window.addEventListener("scroll", () => {
-    if (window.scrollY > 200) {
+    const scrollY = window.scrollY || window.pageYOffset;
+    const windowHeight = window.innerHeight;
+    const docHeight = document.documentElement.scrollHeight;
+
+    // Mostrar solo si NO está arriba de todo y NO está abajo de todo
+    if (
+      scrollY > 10 &&
+      scrollY + windowHeight < docHeight - 10 // 10px de tolerancia
+    ) {
       scrollToTopBtn.classList.add("visible");
     } else {
       scrollToTopBtn.classList.remove("visible");

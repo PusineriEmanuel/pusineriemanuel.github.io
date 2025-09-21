@@ -17,7 +17,7 @@
     <!-- Leaflet Control Geocoder JS -->
     <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
   </head>
-  <body>
+  <body id="inicio-btn">
     <div class="container">
       <header>
         <div class="titleAndNavContainer">
@@ -34,9 +34,9 @@
               <span></span>
             </button>
             <ul class="nav-list">
-              <li><a href="#">Inicio</a></li>
-              <li><a href="#">Trayectoria</a></li>
-              <li><a href="#">Contáctanos</a></li>
+              <li><a href="#inicio-btn">Inicio</a></li>
+              <li><a href="#trayectoria-btn">Trayectoria</a></li>
+              <li><a href="#contactanos-btn">Contáctanos</a></li>
             </ul>
           </nav>
         </div>
@@ -107,7 +107,7 @@
                 <span>⭐</span>
               </div>
               <h3>Experiencia y Confianza</h3>
-              <p>
+              <p id="trayectoria-btn">
                 Nuestra experiencia conectando Chascomús, La Plata y Buenos
                 Aires. Recomendados por nuestros clientes.
               </p>
@@ -219,8 +219,43 @@
           defer
         ></script>
       </main>
-      <footer>
-        <p>&copy; 2024 Tadeo's Trip Page</p>
+      <footer id="contactanos-btn">
+        <div class="footer-left">
+          <a
+            href="https://wa.me/5492241559511"
+            class="footer-icon"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="WhatsApp"
+          >
+            <img
+              src="img/whatsapp.png"
+              alt="WhatsApp"
+              class="footer-social-img"
+            />
+          </a>
+          <a
+            href="https://www.instagram.com/viajes_ch/"
+            class="footer-icon"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Instagram"
+          >
+            <img
+              src="img/instagram.png"
+              alt="Instagram"
+              class="footer-social-img"
+            />
+          </a>
+        </div>
+        <div class="footer-right">
+          <!-- Agrega aquí tu logo -->
+          <img
+            src="img/viajesch-high-resolution-logo-transparent.png"
+            alt="Logo"
+            class="footer-logo"
+          />
+        </div>
       </footer>
     </div>
     <button id="scrollToTopBtn" class="scroll-to-top" aria-label="Ir arriba">
