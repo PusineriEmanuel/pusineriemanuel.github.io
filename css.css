@@ -320,6 +320,11 @@ footer {
   padding: 0 16px;
 }
 
+.hero-text span {
+  color: white;
+  font-size: 1.3rem;
+}
+
 .hero-text {
   flex: 1;
   display: flex;
@@ -342,7 +347,6 @@ footer {
   font-size: 1.15rem;
   line-height: 1.5;
   text-align: left;
-  margin-bottom: 0;
   color: rgb(168, 168, 168);
 }
 
@@ -361,12 +365,18 @@ footer {
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.18);
   object-fit: cover;
 }
+.buttonSection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 .buttonContainer {
   margin-top: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 80%;
 }
 .buttonContainer button {
   position: relative;
@@ -427,7 +437,7 @@ footer {
   justify-content: center;
   align-items: center;
   padding: 32px 0 40px 0;
-  background: none;
+  margin-top: 80px;
 }
 
 .features-grid {
@@ -517,7 +527,7 @@ footer {
 }
 @media (min-width: 1000px) {
   .features-grid {
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     gap: 36px;
   }
   .feature-card {
@@ -559,7 +569,7 @@ footer {
 /* TESTIMONIALS SECTION */
 .testimonials-section {
   width: 100%;
-  padding: 32px 0 40px 0;
+  padding: 32px 0 20px 0;
   text-align: center;
 }
 .testimonials-section h2 {
@@ -574,6 +584,7 @@ footer {
   gap: 22px;
   align-items: center;
   justify-content: center;
+  margin-top: 50px;
 }
 .testimonial-card {
   background: rgba(40, 40, 40, 0.45);
@@ -599,6 +610,9 @@ footer {
 }
 
 /* GALLERY SECTION */
+.gallery-section {
+  margin-top: 100px;
+}
 
 .gallery-fan {
   display: flex;
@@ -611,7 +625,7 @@ footer {
   margin: 0 auto;
   perspective: 1200px;
   user-select: none;
-  margin-top: 24px;
+  margin-top: 50px;
 }
 
 .gallery-img {
@@ -900,17 +914,19 @@ footer {
 }
 
 .maps-section {
-  width: 100%;
+  width: 80%;
   max-width: 600px;
   margin: 0 auto 40px auto;
   padding: 24px 0 0 0;
   text-align: center;
+  margin-top: 80px;
 }
 .maps-section h2 {
   color: #fff;
-  font-size: 1.4rem;
+  font-size: 1.8rem;
   margin-bottom: 18px;
   letter-spacing: 1px;
+  margin-bottom: 50px;
 }
 #map {
   box-shadow: 0 4px 24px #0c79d733;
