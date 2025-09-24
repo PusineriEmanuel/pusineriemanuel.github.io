@@ -313,7 +313,7 @@ footer {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  flex-direction: row;
+  flex-direction: column;
   width: 100%;
   min-height: 90px;
   background-color: rgb(32, 32, 32);
@@ -366,6 +366,24 @@ footer {
   display: block;
   border-radius: 10px;
   box-shadow: 0 2px 100px #0c79d733;
+}
+
+.columnFooterContainer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  min-height: 90px;
+  padding: 0 18px;
+  margin-top: auto;
+  border-top: 1.5px solid #222;
+}
+
+.footerBottom {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex-direction: column;
 }
 
 /* HERO SECTION */
@@ -931,7 +949,6 @@ footer {
   }
 
   footer {
-    flex-direction: row;
     padding: 0 8px;
     min-height: 70px;
   }
@@ -948,6 +965,21 @@ footer {
   }
   .footer-logo {
     height: 32px;
+  }
+
+  .footerBottom {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 375px) {
+  .footerBottom {
+    font-size: 0.8rem;
+  }
+}
+@media (max-width: 320px) {
+  .footerBottom {
+    font-size: 0.7rem;
   }
 }
 
