@@ -256,4 +256,29 @@ document.addEventListener("DOMContentLoaded", function () {
     const waUrl = `https://wa.me/5492241559511?text=${encodeURIComponent(msg)}`;
     window.open(waUrl, "_blank");
   };
+
+  function moveAirportBlockForMobile() {
+    const heroContent = document.querySelector(".hero-content");
+    const heroText = document.querySelector(".hero-text");
+    const heroImage = document.querySelector(".hero-image");
+    const airportBlock = document.getElementById("viajasAAeroparqueBloque");
+
+    if (!heroContent || !heroText || !heroImage || !airportBlock) return;
+
+    if (window.innerWidth <= 600) {
+      // Si está dentro de hero-text, lo movemos después de la imagen
+      if (airportBlock.parentElement === heroText) {
+        heroContent.insertBefore(airportBlock, heroImage.nextSibling);
+      }
+    } else {
+      // Si está fuera de hero-text, lo devolvemos a hero-text
+      if (airportBlock.parentElement === heroContent) {
+        heroText.appendChild(airportBlock);
+      }
+    }
+  }
+
+  // Ejecutar al cargar y al redimensionar
+  window.addEventListener("DOMContentLoaded", moveAirportBlockForMobile);
+  window.addEventListener("resize", moveAirportBlockForMobile);
 });

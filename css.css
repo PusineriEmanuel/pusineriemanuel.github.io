@@ -129,8 +129,28 @@ header.scrolled {
   color: #0c79d7;
 }
 
+.btn-whatsapp-icon {
+  display: inline-block;
+  vertical-align: middle;
+  width: 28px;
+  height: 28px;
+  margin-top: 8px;
+  margin-left: 6px;
+}
+
 /* --- MOBILE STYLES --- */
 @media (max-width: 768px) {
+  .btn-whatsapp-icon {
+    display: block;
+    margin: 10px auto 0 auto;
+    width: 32px;
+    height: 32px;
+  }
+
+  #viajasAAeroparqueBloque {
+    text-align: center;
+    margin-top: 50px;
+  }
   .titleAndNavContainer {
     width: 100%;
     padding: 8px 12px;
@@ -344,29 +364,6 @@ footer {
   box-shadow: 0 2px 100px #0c79d733;
 }
 
-/* Responsive */
-@media (max-width: 600px) {
-  footer {
-    flex-direction: row;
-    padding: 0 8px;
-    min-height: 70px;
-  }
-  .footer-left {
-    gap: 10px;
-  }
-  .footer-icon {
-    width: 36px;
-    height: 36px;
-  }
-  .footer-social-img {
-    width: 20px;
-    height: 20px;
-  }
-  .footer-logo {
-    height: 32px;
-  }
-}
-
 /* HERO SECTION */
 .hero-section {
   margin-top: 100px;
@@ -389,7 +386,13 @@ footer {
   padding: 0 16px;
 }
 
-.hero-text span {
+#viajasAAeroparqueBloque,
+#viajesAAeroparqueBloque {
+  color: rgb(168, 168, 168);
+  font-size: 1.15rem;
+  line-height: 1.5;
+}
+#viajasAAeroparqueBloque span {
   color: white;
   font-size: 1.3rem;
 }
@@ -409,14 +412,6 @@ footer {
   margin-bottom: 18px;
   text-align: left;
   line-height: 1.1;
-}
-
-.hero-text p {
-  color: #e0e0e0;
-  font-size: 1.15rem;
-  line-height: 1.5;
-  text-align: left;
-  color: rgb(168, 168, 168);
 }
 
 .hero-image {
@@ -617,24 +612,6 @@ footer {
   }
 }
 
-@media (max-width: 600px) {
-  .hero-content {
-    flex-direction: column;
-    gap: 24px;
-    padding: 0 8px;
-  }
-  .hero-text,
-  .hero-text h1,
-  .hero-text p {
-    align-items: center;
-    text-align: center;
-    width: 100%;
-  }
-  .hero-image img {
-    max-width: 90vw;
-  }
-}
-
 /* TESTIMONIALS SECTION */
 .testimonials-section {
   width: 100%;
@@ -773,21 +750,6 @@ footer {
 .gallery-img.right:hover::after {
   display: none !important;
 }
-
-/* Responsive */
-/* @media (max-width: 900px) {
-  .gallery-fan {
-    max-width: 98vw;
-    min-height: 110px;
-  }
-  .gallery-img img {
-    width: 80vw;
-    max-width: 80vw;
-    height: auto;
-    max-height: 38vw;
-    border-radius: 10px;
-  }
-} */
 
 /* TÍTULO GALERÍA */
 .gallery-title {
@@ -946,6 +908,42 @@ footer {
   }
   .gallery-fan {
     margin-top: 32px;
+  }
+
+  .hero-content {
+    flex-direction: column;
+    gap: 24px;
+    padding: 0 8px;
+  }
+  .hero-text,
+  .hero-text h1,
+  .hero-text p {
+    align-items: center;
+    text-align: center;
+    width: 100%;
+  }
+  .hero-image img {
+    max-width: 90vw;
+  }
+
+  footer {
+    flex-direction: row;
+    padding: 0 8px;
+    min-height: 70px;
+  }
+  .footer-left {
+    gap: 10px;
+  }
+  .footer-icon {
+    width: 36px;
+    height: 36px;
+  }
+  .footer-social-img {
+    width: 20px;
+    height: 20px;
+  }
+  .footer-logo {
+    height: 32px;
   }
 }
 
