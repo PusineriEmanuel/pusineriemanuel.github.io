@@ -19,6 +19,9 @@ body {
   align-items: center;
   width: 100%;
 }
+section {
+  margin-bottom: 30px;
+}
 /* fin de base ----------------------------------------------------------------------------*/
 
 /* header ------------------------------------------------------------------------------*/
@@ -49,7 +52,6 @@ header.scrolled {
   align-items: center;
   width: 80%;
   padding: 10px 20px;
-  /*   position: relative; */
 }
 
 .logoImg {
@@ -80,7 +82,6 @@ header.scrolled {
   margin: 4px 0;
   border-radius: 2px;
   transition: all 0.3s;
-  /*  display: block; */
 }
 .nav-list {
   display: flex;
@@ -97,6 +98,31 @@ header.scrolled {
 .nav-list li a:hover {
   background: #444;
   color: #0c79d7;
+}
+
+.menu-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(30, 30, 30, 0.5);
+  backdrop-filter: blur(8px);
+  z-index: 99;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+}
+.menu-overlay.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.menu-toggle.active span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+.menu-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+.menu-toggle.active span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
 }
 /* fin de header ----------------------------------------------------------------------*/
 
@@ -131,6 +157,7 @@ header.scrolled {
   font-size: 2.6rem;
   font-weight: 800;
   line-height: 1.1;
+  margin-bottom: 20px;
 }
 .hero-text p,
 #viajasAAeroparqueBloque {
@@ -277,9 +304,9 @@ header.scrolled {
   transform: translateX(180%) skewX(-20deg);
 }
 
-.feature-icon { 
+.feature-icon {
   font-size: 2.6rem;
-             margin-bottom: 18px;
+  margin-bottom: 18px;
   color: #0c79d7;
   filter: drop-shadow(0 2px 8px #0c79d7aa);
 }
@@ -299,6 +326,85 @@ header.scrolled {
   margin-bottom: 0;
 }
 /* fin de features section --------------------------------------------------------------- */
+
+/* footer section ---------------------------------------------------------------------- */
+footer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  min-height: 90px;
+  background-color: rgb(32, 32, 32);
+  padding: 0 18px;
+  color: rgb(168, 168, 168);
+  margin-top: auto;
+  border-top: 1.5px solid #222;
+}
+
+.footer-left {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.footer-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(44, 44, 44, 0.85);
+  transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
+  width: 44px;
+  height: 44px;
+  box-shadow: 0 2px 8px #0c79d733;
+  margin-right: 4px;
+}
+.footer-icon:hover {
+  background: #0c79d7;
+  box-shadow: 0 4px 16px #0c79d7aa;
+  transform: translateY(-3px) scale(1.08);
+}
+.footer-social-img {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+  display: block;
+}
+
+.footer-right {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  min-width: 60px;
+  height: 100%;
+}
+.footer-logo {
+  height: 44px;
+  width: auto;
+  display: block;
+  border-radius: 10px;
+  box-shadow: 0 2px 100px #0c79d733;
+}
+
+.columnFooterContainer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  min-height: 90px;
+  padding: 0 18px;
+  margin-top: auto;
+  border-top: 1.5px solid #222;
+}
+
+.footerBottom {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex-direction: column;
+}
+/* fin de footer section ------------------------------------------------------------------ */
 
 .btn-whatsapp-icon {
   display: inline-block;
@@ -399,33 +505,6 @@ header.scrolled {
   }
 }
 
-/* --- OVERLAY --- */
-.menu-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(30, 30, 30, 0.5);
-  backdrop-filter: blur(8px);
-  z-index: 99;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.3s;
-}
-.menu-overlay.active {
-  opacity: 1;
-  pointer-events: all;
-}
-
-/* --- HAMBURGER ANIMATION --- */
-.menu-toggle.active span:nth-child(1) {
-  transform: translateY(8px) rotate(45deg);
-}
-.menu-toggle.active span:nth-child(2) {
-  opacity: 0;
-}
-.menu-toggle.active span:nth-child(3) {
-  transform: translateY(-8px) rotate(-45deg);
-}
-
 /* --- DESKTOP --- */
 @media (min-width: 769px) {
   .menu-toggle {
@@ -462,93 +541,6 @@ header.scrolled {
   .menu-overlay {
     display: none;
   }
-}
-
-h1 {
-  font-size: 3rem;
-  color: white;
-  margin-bottom: 20px;
-}
-
-section {
-  margin-bottom: 30px;
-}
-
-footer {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  flex-direction: column;
-  width: 100%;
-  min-height: 90px;
-  background-color: rgb(32, 32, 32);
-  padding: 0 18px;
-  color: rgb(168, 168, 168);
-  margin-top: auto;
-  border-top: 1.5px solid #222;
-}
-
-.footer-left {
-  display: flex;
-  align-items: center;
-  gap: 18px;
-}
-
-.footer-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  background: rgba(44, 44, 44, 0.85);
-  transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
-  width: 44px;
-  height: 44px;
-  box-shadow: 0 2px 8px #0c79d733;
-  margin-right: 4px;
-}
-.footer-icon:hover {
-  background: #0c79d7;
-  box-shadow: 0 4px 16px #0c79d7aa;
-  transform: translateY(-3px) scale(1.08);
-}
-.footer-social-img {
-  width: 28px;
-  height: 28px;
-  object-fit: contain;
-  display: block;
-}
-
-.footer-right {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  min-width: 60px;
-  height: 100%;
-}
-.footer-logo {
-  height: 44px;
-  width: auto;
-  display: block;
-  border-radius: 10px;
-  box-shadow: 0 2px 100px #0c79d733;
-}
-
-.columnFooterContainer {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  width: 100%;
-  min-height: 90px;
-  padding: 0 18px;
-  margin-top: auto;
-  border-top: 1.5px solid #222;
-}
-
-.footerBottom {
-  display: flex;
-  align-items: center;
-  gap: 18px;
-  flex-direction: column;
 }
 
 /* Responsive: 2 columnas en tablet, 4 en desktop */
