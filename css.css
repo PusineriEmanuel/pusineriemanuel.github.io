@@ -187,6 +187,15 @@ header.scrolled {
 }
 /* fin de hero ----------------------------------------------------------------------*/
 
+.btn-whatsapp-icon {
+  display: inline-block;
+  vertical-align: middle;
+  width: 28px;
+  height: 28px;
+  margin-top: 8px;
+  margin-left: 6px;
+}
+
 /* button section ------------------------------------------------------------------ */
 .buttonSection {
   display: flex;
@@ -651,8 +660,6 @@ footer {
 }
 .footer-logo {
   height: 44px;
-  width: auto;
-  display: block;
   border-radius: 10px;
   box-shadow: 0 2px 100px #0c79d733;
 }
@@ -664,7 +671,6 @@ footer {
   width: 100%;
   min-height: 90px;
   padding: 0 18px;
-  margin-top: auto;
   border-top: 1.5px solid #222;
 }
 
@@ -675,15 +681,6 @@ footer {
   flex-direction: column;
 }
 /* fin de footer section ------------------------------------------------------------------ */
-
-.btn-whatsapp-icon {
-  display: inline-block;
-  vertical-align: middle;
-  width: 28px;
-  height: 28px;
-  margin-top: 8px;
-  margin-left: 6px;
-}
 
 /* scroll to top button section ---------------------------------------------------------- */
 .scroll-to-top {
