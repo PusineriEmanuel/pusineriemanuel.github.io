@@ -1,3 +1,6 @@
+// ================================================================================
+// HEADER SCROLL EFFECT - Efecto backdrop-filter (blur) en navbar al hacer scroll
+// ================================================================================
 const navbar = document.querySelector("header");
 
 window.addEventListener("scroll", function () {
@@ -8,7 +11,13 @@ window.addEventListener("scroll", function () {
   }
 });
 
+// ================================================================================
+// MAIN DOM LOADED EVENT - Todo el JavaScript principal
+// ================================================================================
 document.addEventListener("DOMContentLoaded", function () {
+  // ================================================================================
+  // MOBILE NAVIGATION MENU - Hamburger menu con overlay y animaciones
+  // ================================================================================
   const menuToggle = document.querySelector(".menu-toggle");
   const navList = document.querySelector(".nav-list");
 
@@ -58,13 +67,21 @@ document.addEventListener("DOMContentLoaded", function () {
     .querySelectorAll("a")
     .forEach((a) => a.addEventListener("click", closeMenu));
 
-  // Galería tipo abanico: auto-rotate + lightbox
+  // ================================================================================
+  // END MOBILE NAVIGATION MENU
+  // ================================================================================
+
+  // ================================================================================
+  // GALLERY FAN SYSTEM - Galería tipo abanico con auto-rotate y lightbox
+  // ================================================================================
+
   const galleryFan = document.querySelector(".gallery-fan");
   if (galleryFan) {
     const imgs = Array.from(galleryFan.querySelectorAll(".gallery-img"));
     let current = 0;
     let timer = null;
 
+    // --- Gallery Fan Rotation Functions ---
     function updateGalleryFan(idx) {
       imgs.forEach((img, i) => {
         img.classList.remove("active", "left", "right");
@@ -93,7 +110,7 @@ document.addEventListener("DOMContentLoaded", function () {
       updateGalleryFan(current);
     }
 
-    // Auto-rotate
+    // --- Auto-rotate Timer ---
     function startGalleryFan() {
       timer = setInterval(nextGalleryFan, 4000);
     }
@@ -104,7 +121,7 @@ document.addEventListener("DOMContentLoaded", function () {
     galleryFan.addEventListener("mouseenter", stopGalleryFan);
     galleryFan.addEventListener("mouseleave", startGalleryFan);
 
-    // Lightbox
+    // --- Lightbox Modal System ---
     const lightbox = document.getElementById("galleryLightbox");
     const lightboxImg = document.getElementById("galleryLightboxImg");
     const lightboxClose = document.getElementById("galleryLightboxClose");
@@ -132,6 +149,7 @@ document.addEventListener("DOMContentLoaded", function () {
       lightboxImg.dataset.idx = idx;
     }
 
+    // --- Lightbox Event Listeners ---
     imgs.forEach((img, i) => {
       img.addEventListener("click", () => {
         openLightbox(i);
@@ -152,6 +170,7 @@ document.addEventListener("DOMContentLoaded", function () {
       showLightboxImg(idx);
     });
 
+    // --- Lightbox Keyboard and Click Controls ---
     // Cerrar con fondo click o ESC
     lightbox.addEventListener("click", (e) => {
       if (e.target === lightbox) closeLightbox();
@@ -163,11 +182,19 @@ document.addEventListener("DOMContentLoaded", function () {
       if (e.key === "ArrowRight") lightboxNext.click();
     });
 
+    // --- Initialize Gallery ---
     updateGalleryFan(current);
     startGalleryFan();
   }
 
-  // Flecha "ir arriba"
+  // ================================================================================
+  // END GALLERY FAN SYSTEM
+  // ================================================================================
+
+  // ================================================================================
+  // SCROLL TO TOP BUTTON - Botón flotante para ir arriba
+  // ================================================================================
+
   const scrollToTopBtn = document.getElementById("scrollToTopBtn");
   window.addEventListener("scroll", () => {
     const scrollY = window.scrollY || window.pageYOffset;
@@ -188,7 +215,15 @@ document.addEventListener("DOMContentLoaded", function () {
     window.scrollTo({ top: 0, behavior: "smooth" });
   });
 
-  // OpenStreetMap con Leaflet
+  // ================================================================================
+  // END SCROLL TO TOP BUTTON
+  // ================================================================================
+
+  // ================================================================================
+  // INTERACTIVE MAP SYSTEM - OpenStreetMap con Leaflet para reservas
+  // ================================================================================
+
+  // --- Map Initialization ---
   // Centra en Chascomús por defecto
   var defaultCoords = [-35.5725, -58.0094];
   var map = L.map("map").setView(defaultCoords, 12);
@@ -200,6 +235,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   var userMarker, destMarker, userPos, destPos;
 
+  // --- User Location Detection ---
   // Intenta obtener la ubicación del usuario
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(function (position) {
@@ -212,6 +248,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
+  // --- Destination Selection ---
   // Click en el mapa para elegir destino
   map.on("click", function (e) {
     destPos = [e.latlng.lat, e.latlng.lng];
@@ -223,6 +260,7 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("sendRouteBtn").style.display = "inline-block";
   });
 
+  // --- Address Search System ---
   // Agregar buscador de direcciones
   if (typeof L.Control.Geocoder !== "undefined") {
     var geocoder = L.Control.geocoder({
@@ -247,6 +285,7 @@ document.addEventListener("DOMContentLoaded", function () {
       .addTo(map);
   }
 
+  // --- WhatsApp Integration ---
   // Botón para enviar por WhatsApp
   document.getElementById("sendRouteBtn").onclick = function () {
     if (!destPos) return;
@@ -256,6 +295,14 @@ document.addEventListener("DOMContentLoaded", function () {
     const waUrl = `https://wa.me/5492241559511?text=${encodeURIComponent(msg)}`;
     window.open(waUrl, "_blank");
   };
+
+  // ================================================================================
+  // END INTERACTIVE MAP SYSTEM
+  // ================================================================================
+
+  // ================================================================================
+  // RESPONSIVE LAYOUT HANDLER - Mueve bloque de aeropuerto en mobile
+  // ================================================================================
 
   function moveAirportBlockForMobile() {
     const heroContent = document.querySelector(".hero-content");
@@ -278,7 +325,16 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
+  // --- Responsive Event Listeners ---
   // Ejecutar al cargar y al redimensionar
   window.addEventListener("DOMContentLoaded", moveAirportBlockForMobile);
   window.addEventListener("resize", moveAirportBlockForMobile);
+
+  // ================================================================================
+  // END RESPONSIVE LAYOUT HANDLER
+  // ================================================================================
+
+  // ================================================================================
+  // END OF MAIN DOM LOADED EVENT
+  // ================================================================================
 });
