@@ -38,9 +38,8 @@ document.addEventListener("DOMContentLoaded", function () {
     navList.querySelectorAll("li").forEach((li, i) => {
       li.style.transitionDelay = 0.1 + i * 0.1 + "s";
     });
-    document.body.style.overflow = "hidden"; // Evita scroll fondo
+    document.body.style.overflow = "hidden";
   }
-
   function closeMenu() {
     menuToggle.classList.remove("active");
     navList.classList.remove("open");
@@ -50,7 +49,7 @@ document.addEventListener("DOMContentLoaded", function () {
     navList.querySelectorAll("li").forEach((li) => {
       li.style.transitionDelay = "0s";
     });
-    document.body.style.overflow = ""; // Restaura scroll fondo
+    document.body.style.overflow = "";
   }
 
   menuToggle.addEventListener("click", function () {
@@ -81,7 +80,6 @@ document.addEventListener("DOMContentLoaded", function () {
     let current = 0;
     let timer = null;
 
-    // --- Gallery Fan Rotation Functions ---
     function updateGalleryFan(idx) {
       imgs.forEach((img, i) => {
         img.classList.remove("active", "left", "right");
@@ -110,18 +108,16 @@ document.addEventListener("DOMContentLoaded", function () {
       updateGalleryFan(current);
     }
 
-    // --- Auto-rotate Timer ---
+    // --- para que se mueva solo con el mouse encima ---
     function startGalleryFan() {
       timer = setInterval(nextGalleryFan, 4000);
     }
     function stopGalleryFan() {
       clearInterval(timer);
     }
-
     galleryFan.addEventListener("mouseenter", stopGalleryFan);
     galleryFan.addEventListener("mouseleave", startGalleryFan);
 
-    // --- Lightbox Modal System ---
     const lightbox = document.getElementById("galleryLightbox");
     const lightboxImg = document.getElementById("galleryLightboxImg");
     const lightboxClose = document.getElementById("galleryLightboxClose");
@@ -170,8 +166,6 @@ document.addEventListener("DOMContentLoaded", function () {
       showLightboxImg(idx);
     });
 
-    // --- Lightbox Keyboard and Click Controls ---
-    // Cerrar con fondo click o ESC
     lightbox.addEventListener("click", (e) => {
       if (e.target === lightbox) closeLightbox();
     });
@@ -182,7 +176,6 @@ document.addEventListener("DOMContentLoaded", function () {
       if (e.key === "ArrowRight") lightboxNext.click();
     });
 
-    // --- Initialize Gallery ---
     updateGalleryFan(current);
     startGalleryFan();
   }
@@ -201,11 +194,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const windowHeight = window.innerHeight;
     const docHeight = document.documentElement.scrollHeight;
 
-    // Mostrar solo si NO está arriba de todo y NO está abajo de todo
-    if (
-      scrollY > 10 &&
-      scrollY + windowHeight < docHeight - 10 // 10px de tolerancia
-    ) {
+    if (scrollY > 10 && scrollY + windowHeight < docHeight - 10) {
       scrollToTopBtn.classList.add("visible");
     } else {
       scrollToTopBtn.classList.remove("visible");
@@ -223,8 +212,6 @@ document.addEventListener("DOMContentLoaded", function () {
   // INTERACTIVE MAP SYSTEM - OpenStreetMap con Leaflet para reservas
   // ================================================================================
 
-  // --- Map Initialization ---
-  // Centra en Chascomús por defecto
   var defaultCoords = [-35.5725, -58.0094];
   var map = L.map("map").setView(defaultCoords, 12);
 
@@ -235,8 +222,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   var userMarker, destMarker, userPos, destPos;
 
-  // --- User Location Detection ---
-  // Intenta obtener la ubicación del usuario
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(function (position) {
       userPos = [position.coords.latitude, position.coords.longitude];
@@ -248,8 +233,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // --- Destination Selection ---
-  // Click en el mapa para elegir destino
   map.on("click", function (e) {
     destPos = [e.latlng.lat, e.latlng.lng];
     if (destMarker) map.removeLayer(destMarker);
@@ -260,8 +243,6 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("sendRouteBtn").style.display = "inline-block";
   });
 
-  // --- Address Search System ---
-  // Agregar buscador de direcciones
   if (typeof L.Control.Geocoder !== "undefined") {
     var geocoder = L.Control.geocoder({
       defaultMarkGeocode: false,
@@ -285,8 +266,6 @@ document.addEventListener("DOMContentLoaded", function () {
       .addTo(map);
   }
 
-  // --- WhatsApp Integration ---
-  // Botón para enviar por WhatsApp
   document.getElementById("sendRouteBtn").onclick = function () {
     if (!destPos) return;
     let origin = userPos ? userPos : defaultCoords;
@@ -313,28 +292,20 @@ document.addEventListener("DOMContentLoaded", function () {
     if (!heroContent || !heroText || !heroImage || !airportBlock) return;
 
     if (window.innerWidth <= 600) {
-      // Si está dentro de hero-text, lo movemos después de la imagen
       if (airportBlock.parentElement === heroText) {
+        /* heroImagen.nexSibling da el valor del siguiente elemento hermano, al no tenerlo devuelve null, y al inserBefore tener como segundo parametro null, pasa el primer parametro a lo ultimo del bloque padre */
         heroContent.insertBefore(airportBlock, heroImage.nextSibling);
       }
     } else {
-      // Si está fuera de hero-text, lo devolvemos a hero-text
       if (airportBlock.parentElement === heroContent) {
         heroText.appendChild(airportBlock);
       }
     }
   }
-
-  // --- Responsive Event Listeners ---
-  // Ejecutar al cargar y al redimensionar
   window.addEventListener("DOMContentLoaded", moveAirportBlockForMobile);
   window.addEventListener("resize", moveAirportBlockForMobile);
 
   // ================================================================================
   // END RESPONSIVE LAYOUT HANDLER
-  // ================================================================================
-
-  // ================================================================================
-  // END OF MAIN DOM LOADED EVENT
   // ================================================================================
 });
