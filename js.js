@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const menuToggle = document.querySelector(".menu-toggle");
   const navList = document.querySelector(".nav-list");
 
-  // Crear overlay para efecto blur completo
+  // Crear overlay para efecto blur completo (fondo total blur, caja enorme al final de body)
   let overlay = document.querySelector(".menu-overlay");
   if (!overlay) {
     overlay = document.createElement("div");
